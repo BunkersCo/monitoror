@@ -19,6 +19,12 @@ func NewConfigDelivery(cu config.Usecase) *ConfigDelivery {
 	return &ConfigDelivery{cu}
 }
 
+func (h *ConfigDelivery) GetConfigList(c echo.Context) error {
+	configList := h.configUsecase.GetConfigList()
+
+	return c.JSON(http.StatusOK, configList)
+}
+
 func (h *ConfigDelivery) GetConfig(c echo.Context) error {
 	// Bind / check Params
 	params := &models.ConfigParams{}

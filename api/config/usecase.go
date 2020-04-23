@@ -8,6 +8,7 @@ import (
 
 type (
 	Usecase interface {
+		GetConfigList() *models.ConfigList
 		GetConfig(params *models.ConfigParams) *models.ConfigBag
 		Verify(config *models.ConfigBag)
 		Hydrate(config *models.ConfigBag)
